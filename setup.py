@@ -40,7 +40,7 @@ setup(
     package_dir={'pyechonest':'pyechonest'},
     packages=['pyechonest'],
     requires=requires,
-    classfiers=[
+    classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
