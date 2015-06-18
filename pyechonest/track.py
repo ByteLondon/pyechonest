@@ -1,13 +1,15 @@
-import urllib2
 try:
     import json
 except ImportError:
     import simplejson as json
 
 import hashlib
-from proxies import TrackProxy
-import util
 import time
+
+from six.moves import urllib
+
+from .proxies import TrackProxy
+from . import util
 
 # Seconds to wait for asynchronous track/upload or track/analyze jobs to complete.
 DEFAULT_ASYNC_TIMEOUT = 60
@@ -122,14 +124,14 @@ class Track(TrackProxy):
                 # Try the existing analysis_url first. This expires shortly
                 # after creation.
                 try:
-                    json_string = urllib2.urlopen(self.analysis_url).read()
-                except urllib2.HTTPError:
+                    json_string = urllib.request.urlopen(self.analysis_url).read()
+                except urllib.error.HTTPError:
                     # Probably the analysis_url link has expired. Refresh it.
                     param_dict = dict(id = self.id)
                     new_track = _profile(param_dict, DEFAULT_ASYNC_TIMEOUT)
                     if new_track and new_track.analysis_url:
                         self.analysis_url = new_track.analysis_url
-                        json_string = urllib2.urlopen(self.analysis_url).read()
+                        json_string = urllib.request.urlopen(self.analysis_url).read()
                     else:
                         raise Exception("Failed to create track analysis.")
 

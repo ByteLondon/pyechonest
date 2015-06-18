@@ -12,9 +12,12 @@ if version < '2.6':
     requires=['urllib', 'urllib2', 'simplejson']
 elif version >= '2.6':
     requires=['urllib', 'urllib2', 'json']
+elif version >= '2.6':
+    requires=[]
 else:
     #unknown version?
     requires=['urllib', 'urllib2']
+requires.append('six')
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -36,5 +39,13 @@ setup(
     download_url='https://github.com/echonest/pyechonest',
     package_dir={'pyechonest':'pyechonest'},
     packages=['pyechonest'],
-    requires=requires
+    requires=requires,
+    classfiers=[
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+    ],
 )

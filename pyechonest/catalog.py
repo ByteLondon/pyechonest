@@ -15,9 +15,9 @@ except ImportError:
 import datetime
 
 import warnings
-import util
-from proxies import CatalogProxy, ResultList
-import artist, song
+from . import util
+from .proxies import CatalogProxy, ResultList
+from . import artist, song
 
 # deal with datetime in json
 dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime.datetime) else None
