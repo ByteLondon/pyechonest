@@ -205,10 +205,10 @@ def callm(method, param_dict, POST=False, socket_timeout=None, data=None):
         return response_dict
 
     except IOError as e:
-        if hasattr(e, 'reason'):
-            raise EchoNestIOError(error=e.reason)
-        elif hasattr(e, 'code'):
-            raise EchoNestIOError(code=e.code)
+        reason = hasattr(e, 'reason') and e.reason or None
+        code = hasattr(e, 'code') and e.code or None
+        if reason or code:
+            raise EchoNestIOError(code=code, error=e.reason)
         else:
             raise
 
