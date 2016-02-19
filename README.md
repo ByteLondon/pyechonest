@@ -90,4 +90,9 @@ ss_tracks = slow_show.get_tracks('7digital-US')
 print ss_tracks[0].get('preview_url')
 ```
 
+## Running the Unit Tests
+
+The unit tests can be run for both Python 2.7 and Python 3.5 using [Tox](http://tox.readthedocs.org/en/latest/), simply set up your API key as an environment variable and then run the `tox` command. Note that the tests are set up to automatically skip if your account rate limits are exceeded, this means that sometime the later tests will not all complete. Should this happen, you can specify to only run tests for one environment, for example `tox -e py35` to only run the tests under Python 3.5.
+
+
 -![alt text](http://i.imgur.com/WWLYo.gif "Frustrated cat can't believe this is the 12th time he's clicked on an auto-linked README.md URL")
