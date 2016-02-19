@@ -9,15 +9,12 @@ import os
 from setuptools import setup
 
 if version < '2.6':
-    requires=['urllib', 'urllib2', 'simplejson']
+    requires=['six', 'urllib', 'urllib2', 'simplejson']
 elif version >= '2.6':
-    requires=['urllib', 'urllib2', 'json']
-elif version >= '2.6':
-    requires=[]
+    requires=['six', 'urllib', 'urllib2', 'json']
 else:
     #unknown version?
-    requires=['urllib', 'urllib2']
-requires.append('six')
+    requires=['six', 'urllib', 'urllib2']
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
