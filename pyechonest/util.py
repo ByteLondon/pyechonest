@@ -300,6 +300,6 @@ def fix(x):
 
 
 def map_idspace(input_idspace):
-    if input_idspace == 'spotify-WW' or input_idspace == 'spotifyv2-ZZ':
+    if input_idspace in ['spotify-WW', 'spotifyv2-ZZ']:
         return 'spotify'
     return input_idspace

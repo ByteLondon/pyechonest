@@ -59,10 +59,9 @@ class XmlWriter(object):
     def elem(self, name, value, attrs={ }):
         # delete attributes with an unset value
         for (k, v) in attrs.items():
-            if v is None or v == '':
+            if not v:
                 del attrs[k]
-        
-        if value is None or value == '':
+        if not value:
             if len(attrs) == 0:
                 return
             self._out.write(self._getIndention())
