@@ -12,6 +12,7 @@ Pyechonest is an open source Python library for the Echo Nest API.  With Pyechon
 There are a few different ways you can install pyechonest:
 
 * Use setuptools: `easy_install -U pyechonest`
+* Use pip: `pip install pyechonest`
 * Download the zipfile from the [releases](https://github.com/echonest/pyechonest/releases) page and install it. 
 * Checkout the source: `git clone git://github.com/echonest/pyechonest.git` and install it yourself.
    
